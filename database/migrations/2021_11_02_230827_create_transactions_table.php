@@ -14,11 +14,11 @@ class CreateTransactionsTable extends Migration
     public function up()
     {
         Schema::create('transactions', function (Blueprint $table) {
-            $table->id('transaction_id');
-            $table->enum('type', ['income', 'outcome']);
+            $table->id();
+            $table->enum('type', ['INCOME', 'OUTCOME']);
             $table->bigInteger('amount');
             $table->text('notes');
-            $table->integer('category_id');
+            $table->foreignId('category_id')->constrained('transaction_categories');
             $table->timestamps();
         });
     }

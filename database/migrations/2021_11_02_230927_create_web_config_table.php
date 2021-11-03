@@ -14,10 +14,10 @@ class CreateWebConfigTable extends Migration
     public function up()
     {
         Schema::create('web_config', function (Blueprint $table) {
-            $table->id('id');
+            $table->id();
             $table->string('name');
             $table->string('phone_number');
-            $table->string('profile_image');
+            $table->text('profile_image');
             $table->timestamps();
         });
     }
